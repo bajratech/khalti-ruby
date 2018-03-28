@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "khalti/ruby"
+require "khalti"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

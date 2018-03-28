@@ -1,6 +1,6 @@
-RSpec.describe Khalti::Ruby do
+RSpec.describe Khalti do
   it "has a version number" do
-    expect(Khalti::Ruby::VERSION).not_to be nil
+    expect(Khalti::VERSION).not_to be nil
   end
 
   it "does something useful" do

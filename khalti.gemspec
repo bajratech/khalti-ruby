@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "khalti/ruby/version"
+require "khalti/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "khalti-ruby"
-  spec.version       = Khalti::Ruby::VERSION
+  spec.name          = "khalti"
+  spec.version       = Khalti::VERSION
   spec.authors       = ["Degendra Sivakoti"]
   spec.email         = ["degendra.sivakoti@gmail.com"]
 
