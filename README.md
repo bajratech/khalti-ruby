@@ -20,7 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
-Write usage instructions here
+    export KHALTI_SECRET_KEY=your_secret_key
+
+It supports server side verification and transaction list/ find
+
+Verification:
+
+    Khalti::Verification.verify('token', 'amount')
+
+Transaction:
+
+    Khalti::Transaction.all
+    Khalti::Transaction.find(idx)
 
 ## Development
 
