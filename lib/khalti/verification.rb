@@ -1,5 +1,6 @@
 require 'uri'
 require 'net/http'
+require 'json'
 
 API_URL = "https://khalti.com/api/payment/verify/"
 
@@ -17,7 +18,7 @@ module Khalti
       request.set_form_data('token' => "#{token}", 'amount' => "#{amount}")
       response = https.request(request)
 
-      puts response.body
+      JSON.parse(response.body) || {}
     end
   end
 end

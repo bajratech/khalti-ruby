@@ -1,5 +1,6 @@
 require 'uri'
 require 'net/http'
+require 'json'
 
 API_URL = 'https://khalti.com/api/merchant-transaction'
 
@@ -17,7 +18,7 @@ module Khalti
       request = Net::HTTP::Get.new(uri.request_uri, headers)
       response = https.request(request)
 
-      puts response.body
+      JSON.parse(response.body) || {}
     end
 
     def self.all
@@ -31,7 +32,7 @@ module Khalti
       request = Net::HTTP::Get.new(uri.request_uri, headers)
       response = https.request(request)
 
-      puts response.body
+      JSON.parse(response.body) || {}
     end
   end
 end
