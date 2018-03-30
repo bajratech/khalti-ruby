@@ -1,6 +1,6 @@
 # Khalti
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/khalti`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to the khalti ruby gem. It is an API wrapper for Khalti payment gateway. For more info visit [Khalti Gateway Docs](http://docs.khalti.com/).
 
 ## Installation
 
@@ -20,7 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
-Write usage instructions here
+    export KHALTI_SECRET_KEY=your_secret_key
+
+It supports server side verification and transaction list/ find
+
+Verification:
+
+    Khalti::Verification.verify('token', 'amount')
+
+Transaction:
+
+    Khalti::Transaction.all
+    Khalti::Transaction.find(idx)
 
 ## Development
 
