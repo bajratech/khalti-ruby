@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/degendra/khalti-ruby.png)](https://travis-ci.org/degendra/khalti-ruby)
+[![Build Status](https://travis-ci.org/degendra/khalti-ruby.png)](https://travis-ci.org/degendra/khalti-ruby) [![codecov](https://codecov.io/gh/degendra/khalti-ruby/branch/master/graph/badge.svg)](https://codecov.io/gh/degendra/khalti-ruby)
 
 # Khalti
 
