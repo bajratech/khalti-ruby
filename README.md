@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/degendra/khalti-ruby.png)](https://travis-ci.org/degendra/khalti-ruby) [![codecov](https://codecov.io/gh/degendra/khalti-ruby/branch/master/graph/badge.svg)](https://codecov.io/gh/degendra/khalti-ruby)
+[![Build Status](https://travis-ci.org/degendra/khalti-ruby.png)](https://travis-ci.org/degendra/khalti-ruby) [![codecov](https://codecov.io/gh/degendra/khalti-ruby/branch/master/graph/badge.svg)](https://codecov.io/gh/degendra/khalti-ruby) [![Gem Version](https://badge.fury.io/rb/khalti.svg)](https://badge.fury.io/rb/khalti) [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/) [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 # Khalti
 
