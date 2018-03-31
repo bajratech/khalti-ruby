@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/degendra/khalti-ruby.png)](https://travis-ci.org/degendra/khalti-ruby)
+
 # Khalti
 
 Welcome to the khalti ruby gem. It is an API wrapper for Khalti payment gateway. For more info visit [Khalti Gateway Docs](http://docs.khalti.com/).
