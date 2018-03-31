@@ -7,6 +7,7 @@ module Khalti
     API_URL = 'https://khalti.com/api/merchant-transaction'
     SECRET_KEY = ENV['KHALTI_SECRET_KEY']
     def self.find(idx)
+      raise 'Invalid idx' if idx.nil? || idx.strip.empty?
       headers = {
         Authorization: "Key #{SECRET_KEY}"
       }
