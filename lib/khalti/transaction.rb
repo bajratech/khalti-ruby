@@ -2,17 +2,15 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-API_URL = 'https://khalti.com/api/merchant-transaction'
-
 module Khalti
   class Transaction
+    @api_url = 'https://khalti.com/api/merchant-transaction'
     def self.find(idx)
       secret_key = ENV['KHALTI_SECRET_KEY'] #test_secret_key_f59e8b7d18b4499ca40f68195a846e9b
       headers = {
         Authorization: "Key #{secret_key}"
       }
-      uri = URI.parse("#{API_URL}/#{idx}/")
-      puts uri
+      uri = URI.parse("#{@api_url}/#{idx}/")
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
       request = Net::HTTP::Get.new(uri.request_uri, headers)
@@ -26,7 +24,7 @@ module Khalti
       headers = {
         Authorization: "Key #{secret_key}"
       }
-      uri = URI.parse("#{API_URL}/")
+      uri = URI.parse("#{@api_url}/")
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
       request = Net::HTTP::Get.new(uri.request_uri, headers)
