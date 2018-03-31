@@ -4,13 +4,13 @@ require 'json'
 
 module Khalti
   class Verification
-    @api_url = "https://khalti.com/api/payment/verify/"
+    API_URL = "https://khalti.com/api/payment/verify/"
+    SECRET_KEY = ENV['KHALTI_SECRET_KEY']
     def self.verify(token, amount)
-      secret_key = ENV['KHALTI_SECRET_KEY']
       headers = {
-        Authorization: "Key #{secret_key}"
+        Authorization: "Key #{SECRET_KEY}"
       }
-      uri = URI.parse("#{@api_url}")
+      uri = URI.parse("#{API_URL}")
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
       request = Net::HTTP::Post.new(uri.request_uri, headers)
