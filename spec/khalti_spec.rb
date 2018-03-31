@@ -43,10 +43,10 @@ RSpec.describe Khalti do
 
   context 'Transaction list and find' do
     before do
-      stub_request(:get, "https://khalti.com/api/merchant-transaction/").to_return(:body => fixture("verify.json"),
+      stub_request(:get, "https://khalti.com/api/merchant-transaction/").to_return(:body => fixture("trans_all.json"),
         :status => 200,
         :headers => {})
-      stub_request(:get, "https://khalti.com/api/merchant-transaction/idx/").to_return(:body => fixture("verify.json"),
+      stub_request(:get, "https://khalti.com/api/merchant-transaction/idx/").to_return(:body => fixture("tran.json"),
       :status => 200,
       :headers => {})
     end
