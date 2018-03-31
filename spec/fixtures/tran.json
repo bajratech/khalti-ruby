@@ -1,0 +1,33 @@
+{
+  "idx": "hPW23KAgBynN8ojwopTuxb",
+  "type": { "name": "Wallet payment", "idx": "2jwzDS9wkxbkDFquJqfAEC" },
+  "state": {
+    "template": "has been initiated",
+    "name": "Initiated",
+    "idx": "RzwhZdcAKj9HDWtEmWeu9a"
+  },
+  "amount": 1000,
+  "fee_amount": 30,
+  "created_on": "2018-03-27T21:55:53.911327+05:45",
+  "balance": 0,
+  "can_refund": false,
+  "ebanker": null,
+  "source": {
+    "mobile": "9801165561",
+    "name": "Khalti Support",
+    "idx": "rkXytkbF6BoiXkmeopFPnN"
+  },
+  "destination": {
+    "mobile": "suren+m@janakitech.com",
+    "name": "Merchant For Doc",
+    "idx": "GsUYwhEcroRcdhkbU6uCV8"
+  },
+  "service_log": null,
+  "refunded": false,
+  "child_transactions": [],
+  "meta": {
+    "product_name": "Dragon",
+    "product_url": "http://gameofthrones.wikia.com/wiki/Dragons",
+    "product_identity": "1234567890"
+  }
+}

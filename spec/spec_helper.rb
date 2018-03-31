@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "khalti"
+require 'webmock/rspec'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,4 +12,14 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  WebMock.disable_net_connect!(allow_localhost: true)
+end
+
+def fixture_path
+  File.expand_path('../fixtures', __FILE__)
+end
+
+def fixture(file)
+  File.new(fixture_path + '/' + file)
 end
