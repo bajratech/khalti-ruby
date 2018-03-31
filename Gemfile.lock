@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    khalti (0.1.3)
+    khalti (0.1.4)
 
 GEM
   remote: https://rubygems.org/
