@@ -16,5 +16,19 @@ module Khalti
   class ConfigurationError < KhaltiError; end
 
   class InvalidTokenError < KhaltiError; end
+
+  class ValidationsFailed < KhaltiError
+    def initialize(error_result)
+      @error_result = error_result
+    end
+
+    def inspect
+      "#<#{self.class} error_result: #{@error_result.inspect}>"
+    end
+
+    def to_s
+      JSON.parse(@error_result)
+    end
+  end
   
 end

@@ -1,6 +1,7 @@
 module Khalti
   module RequestHelper
     SECRET_KEY = ENV['KHALTI_SECRET_KEY']
+
     def self.get(path)
       uri = URI.parse(path)
       req = Net::HTTP::Get.new(uri)
@@ -11,6 +12,8 @@ module Khalti
 
       if response.code.to_i == 200 || response.code.to_i == 204
         JSON.parse(response.body)
+      elsif response.code.to_i == 400 # Validation error
+        Khalti::ValidationsFailed.new(response.body)
       else
         Khalti::Util.raise_exception_for_status_code(response.code)
       end
@@ -24,9 +27,11 @@ module Khalti
       response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) {|http|
         http.request(req)
       }
-      
+
       if response.code.to_i == 200 || response.code.to_i == 204
         JSON.parse(response.body)
+      elsif response.code.to_i == 400 # Validation error
+        Khalti::ValidationsFailed.new(response.body)
       else
         Khalti::Util.raise_exception_for_status_code(response.code)
       end
