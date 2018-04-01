@@ -1,8 +1,12 @@
+require 'uri'
+require 'net/http'
+require 'json'
+
 require_relative "khalti/version"
-require_relative "khalti/verification"
-require_relative "khalti/transaction"
+
+require_relative 'khalti/exceptions'
+require_relative 'khalti/util'
 require_relative "khalti/request_helper"
 
-module Khalti
-  # Your code goes here...
-end
+require_relative "khalti/verification"
+require_relative "khalti/transaction"

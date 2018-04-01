@@ -1,7 +1,3 @@
-require 'uri'
-require 'net/http'
-require 'json'
-
 module Khalti
   class Transaction
     API_URL = 'https://khalti.com/api/merchant-transaction'
