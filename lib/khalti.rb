@@ -1,3 +1,7 @@
+require 'uri'
+require 'net/http'
+require 'json'
+
 require_relative "khalti/version"
 
 require_relative 'khalti/exceptions'
