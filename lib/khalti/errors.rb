@@ -16,5 +16,8 @@ module Khalti
 
     class InvalidTokenError < RuntimeError
     end
+
+    class InvalidResponseError < RuntimeError
+    end
   end
 end

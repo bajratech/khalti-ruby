@@ -33,7 +33,7 @@ RSpec.describe Khalti do
     before do
       stub_request(:post, "https://khalti.com/api/payment/verify/").to_return(:body => fixture("verify.json"),
         :status => 200,
-        :headers => {})
+        :headers => {'content-type': 'application/json'})
     end
     it "should call verify method in verification class" do
       resp = Khalti::Verification.verify("token_token_token_token", 1000)
@@ -45,10 +45,10 @@ RSpec.describe Khalti do
     before do
       stub_request(:get, "https://khalti.com/api/merchant-transaction/").to_return(:body => fixture("trans_all.json"),
         :status => 200,
-        :headers => {})
+        :headers => {'content-type': 'application/json'})
       stub_request(:get, "https://khalti.com/api/merchant-transaction/idx/").to_return(:body => fixture("tran.json"),
       :status => 200,
-      :headers => {})
+      :headers => {'content-type': 'application/json'})
     end
     it "should call all method in transaction class" do
       resp = Khalti::Transaction.all
