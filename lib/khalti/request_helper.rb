@@ -5,10 +5,15 @@ module Khalti
       uri = URI.parse(path)
       req = Net::HTTP::Get.new(uri)
       req['authorization'] = "Key #{SECRET_KEY}"
-      res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) {|http|
+      response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) {|http|
         http.request(req)
       }
-      JSON.parse(res.body)
+
+      if response.code.to_i == 200 || response.code.to_i == 204
+        JSON.parse(response.body)
+      else
+        Khalti::Util.raise_exception_for_status_code(response.code)
+      end
     end
 
     def self.post(path, params)
@@ -16,10 +21,15 @@ module Khalti
       req = Net::HTTP::Post.new(uri)
       req['authorization'] = "Key #{SECRET_KEY}"
       req.set_form_data(params)
-      res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) {|http|
+      response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) {|http|
         http.request(req)
       }
-      JSON.parse(res.body)
+      
+      if response.code.to_i == 200 || response.code.to_i == 204
+        JSON.parse(response.body)
+      else
+        Khalti::Util.raise_exception_for_status_code(response.code)
+      end
     end
   end
 end

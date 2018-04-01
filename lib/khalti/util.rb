@@ -13,7 +13,7 @@ module Khalti
       when 503
         raise DownForMaintenanceError
       else
-        raise UnexpectedError "Unexpected HTTP_RESPONSE #{status_code.to_i}"
+        raise UnexpectedError, "Unexpected HTTP_RESPONSE #{status_code.to_i}"
       end
     end
   end
