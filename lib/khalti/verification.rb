@@ -12,7 +12,7 @@ module Khalti
       headers = {
         Authorization: "Key #{SECRET_KEY}"
       }
-      uri = URI.parse("#{API_URL}")
+      uri = URI.parse(API_URL)
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
       request = Net::HTTP::Post.new(uri.request_uri, headers)
