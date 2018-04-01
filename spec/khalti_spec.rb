@@ -36,7 +36,7 @@ RSpec.describe Khalti do
         :headers => {})
     end
     it "should call verify method in verification class" do
-      resp = Khalti::Verification.verify("token", 1000)
+      resp = Khalti::Verification.verify("token_token_token_token", 1000)
       expect(resp).to eq JSON.parse(fixture("verify.json").read)
     end
   end

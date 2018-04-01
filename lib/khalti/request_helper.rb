@@ -2,6 +2,7 @@ module Khalti
   module RequestHelper
     SECRET_KEY = ENV['KHALTI_SECRET_KEY']
     def self.get(path)
+      self.validate_secret_key
       uri = URI.parse(path)
       req = Net::HTTP::Get.new(uri)
       req['authorization'] = "Key #{SECRET_KEY}"
@@ -12,6 +13,7 @@ module Khalti
     end
 
     def self.post(path, params)
+      self.validate_secret_key
       uri = URI.parse(path)
       req = Net::HTTP::Post.new(uri)
       req['authorization'] = "Key #{SECRET_KEY}"
@@ -20,6 +22,11 @@ module Khalti
         http.request(req)
       }
       JSON.parse(res.body)
+    end
+
+    private
+    def self.validate_secret_key
+      raise Errors::BlankError.new('Ensure KHALTI_SECRET_KEY is not blank.') if SECRET_KEY.nil? || SECRET_KEY.strip.empty?
     end
   end
 end

@@ -7,10 +7,11 @@ module Khalti
     API_URL = "https://khalti.com/api/payment/verify/"
     SECRET_KEY = ENV['KHALTI_SECRET_KEY']
     def self.verify(token, amount)
-      raise 'Invalid Token' if token.nil? || token.strip.empty?
-      raise 'Invalid Amount' if Integer(amount) < 0
+      raise Errors::BlankError.new('Ensure token is not blank.') if token.nil? || token.strip.empty?
+      raise Errors::InvalidTokenError.new('Ensure token has at least 22 characters.') if token.strip.size < 22
+      raise Errors::InvalidAmountError.new('Ensure amount is greate than 0 paisa.') if Integer(amount) < 0
       params = {'token': token, 'amount': Integer(amount)}
-      Khalti::RequestHelper.post(API_URL, params)
+      RequestHelper.post(API_URL, params)
     end
   end
 end
