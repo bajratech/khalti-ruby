@@ -6,12 +6,12 @@ module Khalti
   class Transaction
     API_URL = 'https://khalti.com/api/merchant-transaction'
     def self.find(idx)
-      raise 'Invalid idx' if idx.nil? || idx.strip.empty?
-      Khalti::RequestHelper.get("#{API_URL}/#{idx}/")
+      raise Errors::BlankError.new('Ensure idx is not blank.') if idx.nil? || idx.strip.empty?
+      RequestHelper.get("#{API_URL}/#{idx}/")
     end
 
     def self.all
-      Khalti::RequestHelper.get("#{API_URL}/")
+      RequestHelper.get("#{API_URL}/")
     end
   end
 end
