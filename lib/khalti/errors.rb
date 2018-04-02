@@ -8,16 +8,16 @@ module Khalti
       end
     end
 
-    class BlankError < RuntimeError
+    class BlankError < KhaltiError
     end
 
-    class InvalidAmountError < RuntimeError
+    class InvalidAmountError < KhaltiError
     end
 
-    class InvalidTokenError < RuntimeError
+    class InvalidTokenError < KhaltiError
     end
 
-    class InvalidResponseError < RuntimeError
+    class InvalidResponseError < KhaltiError
     end
   end
 end
