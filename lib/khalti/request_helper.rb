@@ -13,13 +13,7 @@ module Khalti
         res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
           http.request(req)
         end
-        case res
-        when Net::HTTPSuccess
-          validate_content_type(res['content-type'])
-          JSON.parse res.body
-        else
-          raise Errors::KhaltiError, res.message
-        end
+        extract_response(res)
       end
 
       def post(path, params)
@@ -31,13 +25,7 @@ module Khalti
         res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
           http.request(req)
         end
-        case res
-        when Net::HTTPSuccess
-          validate_content_type(res['content-type'])
-          JSON.parse res.body
-        else
-          raise Errors::KhaltiError, res.message
-        end
+        extract_response(res)
       end
 
       private
@@ -51,6 +39,16 @@ module Khalti
         return if content_type == 'application/json'
         raise Errors::InvalidResponseError,
               'Content-type is not application/json.'
+      end
+
+      def extract_response(res)
+        case res
+        when Net::HTTPSuccess
+          validate_content_type(res['content-type'])
+          JSON.parse res.body
+        else
+          raise Errors::KhaltiError, res.message
+        end
       end
     end
   end
