@@ -10,11 +10,11 @@ module Khalti
         http.request(req)
       }
       case res
-        when Net::HTTPSuccess
-          self.validate_content_type(res['content-type'])
-          JSON.parse res.body
-        else
-          raise Errors::KhaltiError.new(res.message)
+      when Net::HTTPSuccess
+        self.validate_content_type(res['content-type'])
+        JSON.parse res.body
+      else
+        raise Errors::KhaltiError, res.message
       end
     end
 
@@ -28,21 +28,25 @@ module Khalti
         http.request(req)
       }
       case res
-        when Net::HTTPSuccess
-          self.validate_content_type(res['content-type'])
-          JSON.parse res.body
-        else
-          raise Errors::KhaltiError.new(res.message)
+      when Net::HTTPSuccess
+        self.validate_content_type(res['content-type'])
+        JSON.parse res.body
+      else
+        raise Errors::KhaltiError, res.message
       end
     end
 
     private
+
     def self.validate_secret_key
-      raise Errors::BlankError.new('Ensure KHALTI_SECRET_KEY is not blank.') if SECRET_KEY.nil? || SECRET_KEY.strip.empty?
+      return unless SECRET_KEY.nil? || SECRET_KEY.strip.empty?
+      raise Errors::BlankError, 'Ensure KHALTI_SECRET_KEY is not blank.'
     end
 
     def self.validate_content_type(content_type)
-      Errors::InvalidResponseError.new('Content-type is not application/json.') unless content_type ==='application/json'
+      return if content_type == 'application/json'
+      raise Errors::InvalidResponseError,
+            'Content-type is not application/json.'
     end
   end
 end
