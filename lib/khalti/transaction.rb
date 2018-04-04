@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'uri'
 require 'net/http'
 require 'json'
@@ -5,7 +7,7 @@ require 'json'
 module Khalti
   # Khalti Transaction API wrapper
   class Transaction
-    API_URL = 'https://khalti.com/api/merchant-transaction'.freeze
+    API_URL = 'https://khalti.com/api/merchant-transaction'
     def self.find(idx)
       raise Errors::BlankError, 'Ensure idx is not blank.' \
         if idx.nil? || idx.strip.empty?

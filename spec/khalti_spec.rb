@@ -1,12 +1,13 @@
-RSpec.describe Khalti do
+# frozen_string_literal: true
 
+RSpec.describe Khalti do
   it 'has a version number' do
     expect(Khalti::VERSION).not_to be nil
   end
 
   context 'class existance test' do
-    let(:transaction) {Khalti::Transaction.new}
-    let(:verification) {Khalti::Verification.new}
+    let(:transaction) { Khalti::Transaction.new }
+    let(:verification) { Khalti::Verification.new }
 
     it 'has transaction class' do
       expect(transaction).to be_a Khalti::Transaction
@@ -32,9 +33,11 @@ RSpec.describe Khalti do
   context 'Transaction verification' do
     before do
       stub_request(:post, 'https://khalti.com/api/payment/verify/')
-      .to_return(:body => fixture('verify.json'),
-        :status => 200,
-        :headers => {'content-type': 'application/json'})
+        .to_return(
+          body: fixture('verify.json'),
+          status: 200,
+          headers: { 'content-type': 'application/json' }
+        )
     end
     it 'should call verify method in verification class' do
       resp = Khalti::Verification.verify('token_token_token_token', 1000)
@@ -45,13 +48,17 @@ RSpec.describe Khalti do
   context 'Transaction list and find' do
     before do
       stub_request(:get, 'https://khalti.com/api/merchant-transaction/')
-      .to_return(:body => fixture('trans_all.json'),
-        :status => 200,
-        :headers => {'content-type': 'application/json'})
+        .to_return(
+          body: fixture('trans_all.json'),
+          status: 200,
+          headers: { 'content-type': 'application/json' }
+        )
       stub_request(:get, 'https://khalti.com/api/merchant-transaction/idx/')
-      .to_return(:body => fixture('tran.json'),
-      :status => 200,
-      :headers => {'content-type': 'application/json'})
+        .to_return(
+          body: fixture('tran.json'),
+          status: 200,
+          headers: { 'content-type': 'application/json' }
+        )
     end
     it 'should call all method in transaction class' do
       resp = Khalti::Transaction.all
