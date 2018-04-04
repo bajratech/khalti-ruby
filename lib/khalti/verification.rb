@@ -3,6 +3,7 @@ require 'net/http'
 require 'json'
 
 module Khalti
+  # Khalti verification API wrapper
   class Verification
     API_URL = "https://khalti.com/api/payment/verify/".freeze
     SECRET_KEY = ENV['KHALTI_SECRET_KEY']

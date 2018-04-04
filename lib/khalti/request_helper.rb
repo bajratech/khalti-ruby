@@ -1,4 +1,5 @@
 module Khalti
+  # Handles API calls
   module RequestHelper
     class << self
       SECRET_KEY = ENV['KHALTI_SECRET_KEY']

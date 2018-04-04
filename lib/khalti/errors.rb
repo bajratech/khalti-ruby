@@ -1,18 +1,18 @@
 module Khalti
   module Errors
-    class KhaltiError < RuntimeError
-    end
+    # Custom error class to handle RuntimeError
+    class KhaltiError < RuntimeError; end
 
-    class BlankError < KhaltiError
-    end
+    # Custom error class to handle blank variables
+    class BlankError < KhaltiError; end
 
-    class InvalidAmountError < KhaltiError
-    end
+    # Custom error class to handle invalid amount
+    class InvalidAmountError < KhaltiError; end
 
-    class InvalidTokenError < KhaltiError
-    end
+    # Custom error class to handle invalid token
+    class InvalidTokenError < KhaltiError; end
 
-    class InvalidResponseError < KhaltiError
-    end
+    # Custom error class to handle invalid response data
+    class InvalidResponseError < KhaltiError; end
   end
 end
