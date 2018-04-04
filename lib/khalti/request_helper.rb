@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Khalti
   # Handles API calls
   module RequestHelper
