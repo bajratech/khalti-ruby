@@ -4,7 +4,7 @@ require 'json'
 
 module Khalti
   class Verification
-    API_URL = "https://khalti.com/api/payment/verify/"
+    API_URL = "https://khalti.com/api/payment/verify/".freeze
     SECRET_KEY = ENV['KHALTI_SECRET_KEY']
     def self.verify(token, amount)
       raise Errors::BlankError.new('Ensure token is not blank.') if token.nil? || token.strip.empty?
