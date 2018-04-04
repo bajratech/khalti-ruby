@@ -4,9 +4,10 @@ require 'json'
 
 module Khalti
   class Transaction
-    API_URL = 'https://khalti.com/api/merchant-transaction'
+    API_URL = 'https://khalti.com/api/merchant-transaction'.freeze
     def self.find(idx)
-      raise Errors::BlankError.new('Ensure idx is not blank.') if idx.nil? || idx.strip.empty?
+      raise Errors::BlankError, 'Ensure idx is not blank.' \
+        if idx.nil? || idx.strip.empty?
       RequestHelper.get("#{API_URL}/#{idx}/")
     end
 
