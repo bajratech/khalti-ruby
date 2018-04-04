@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Degendra Sivakoti']
   spec.email         = ['degendra.sivakoti@gmail.com']
   spec.summary       = 'Ruby gem for Khalti online transaction platform.'
-  spec.description   = 'https://github.com/degendra/khalti-ruby'
+  spec.description   = 'https://github.com/bajratech/khalti-ruby'
   spec.homepage      = 'https://github.com/bajratech/khalti-ruby'
   spec.license       = 'MIT'
   # Prevent pushing this gem to RubyGems.org. To allow pushes either
