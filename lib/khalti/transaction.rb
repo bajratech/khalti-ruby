@@ -3,6 +3,7 @@ require 'net/http'
 require 'json'
 
 module Khalti
+  # Khalti Transaction API wrapper
   class Transaction
     API_URL = 'https://khalti.com/api/merchant-transaction'.freeze
     def self.find(idx)
