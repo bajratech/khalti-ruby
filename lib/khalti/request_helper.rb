@@ -37,8 +37,7 @@ module Khalti
 
       def validate_content_type(content_type)
         return if content_type == 'application/json'
-        raise Errors::InvalidResponseError,
-              'Content-type is not application/json.'
+        raise Errors::InvalidResponseError, 'Content-type is not application/json.'
       end
 
       def extract_response(res)

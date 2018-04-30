@@ -25,14 +25,12 @@ module Khalti
 
       def validate_token_length(val)
         return if val.strip.size >= 22
-        raise Errors::InvalidTokenError, 'Ensure token has at least ' \
-          '22 characters.'
+        raise Errors::InvalidTokenError, 'Ensure token has at least 22 characters.'
       end
 
       def validate_ammount(val)
         return if Integer(val).positive?
-        raise Errors::InvalidAmountError, 'Ensure amount is ' \
-          'greater than 0 paisa.'
+        raise Errors::InvalidAmountError, 'Ensure amount is greater than 0 paisa.'
       end
     end
   end
