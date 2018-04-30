@@ -3,6 +3,7 @@ language: ruby
 rvm:
   - 2.5.0
 before_install: gem install bundler -v 1.16.1
+env:
+  - KHALTI_SECRET_KEY=your_secret_key
 script:
-  - export KHALTI_SECRET_KEY=your_secret_key
   - bundle exec rspec spec
