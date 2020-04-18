@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    khalti (0.2.0)
+    khalti (0.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -19,7 +19,7 @@ GEM
     hashdiff (0.3.7)
     json (2.1.0)
     public_suffix (3.0.2)
-    rake (10.5.0)
+    rake (13.0.1)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -52,7 +52,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   codecov (~> 0.1)
   khalti!
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.0)
   webmock (~> 3.3)
 
