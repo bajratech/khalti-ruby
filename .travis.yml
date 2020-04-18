@@ -1,7 +1,8 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.5.0
+  - 2.6
+  - 2.5
 before_install: gem install bundler -v 1.16.1
 env:
   - KHALTI_SECRET_KEY=your_secret_key
